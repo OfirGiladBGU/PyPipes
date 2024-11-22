@@ -11,7 +11,7 @@
 
 import sys
 sys.path.append('../PyPipes')
-
+import os
 import pathlib
 import random
 import argparse
@@ -33,7 +33,8 @@ def main(args):
     print("building samples...")
 
     #resource_dir = pathlib.Path(__file__).parent.parent.parent / "resources" / "data"
-    resource_dir = pathlib.Path(__file__).parent.parent.parent
+    resource_dir = pathlib.Path(__file__).parent.parent
+    os.makedirs(name=os.path.join(resource_dir, save_path), exist_ok=True)
 
     for i in range(0, nb_models):
         file_path = resource_dir / save_path / (str(i) + "_classif.json")
